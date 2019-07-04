@@ -14,6 +14,9 @@
     pressed.push(e.key);
     pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
     //counts from the end instead of the beginning
+    if (pressed.join('').includes(secretCode)) {
+      alert('You cracked the code!');
+    }
     console.log(pressed);
   })
 </script>
