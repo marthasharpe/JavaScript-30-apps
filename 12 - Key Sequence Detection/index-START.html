@@ -6,16 +6,31 @@
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+
+  <h1>Crack the code for awesomeness!</h1>
+
+<style>
+  body {
+    background: blue;
+  }
+  h1 {
+    font-size: 5em;
+    color:magenta;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+  }
+</style>
+
 <script>
   const pressed = [];
   const secretCode = "awesome"
-
   window.addEventListener('keyup', (e) => {
     pressed.push(e.key);
     pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
     //counts from the end instead of the beginning
     if (pressed.join('').includes(secretCode)) {
       alert('You cracked the code!');
+      cornify_add();
     }
     console.log(pressed);
   })
