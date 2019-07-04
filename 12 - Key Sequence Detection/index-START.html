@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Key Detection</title>
+  <title>Martha's Key Detection</title>
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
 <script>
+  const pressed = [];
+  const secretCode = "awesome"
+
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    //counts from the end instead of the beginning
+    console.log(pressed);
+  })
 </script>
 </body>
 </html>
