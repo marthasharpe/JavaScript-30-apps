@@ -36,10 +36,11 @@
     const item = {
       text,
       done: false,
-    }
+    };
+
     items.push(item);
     populateList(items, itemsList);
-    localStorage.setItems('items', JSON.stringify(items));
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
   }
 
@@ -54,8 +55,17 @@
     }).join('');
   }
 
-  addItems.addEventListener('submit', addItem);
+  function toggleDone(e) {
+    if (!e.target.matches('input')) return; //skip event if not an input
+    const el = e.target;
+    const index = el.dataset.index;
+    items[index].done = !items[index].done;
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
 
+  addItems.addEventListener('submit', addItem);
+  itemsList.addEventListener('click', toggleDone);
   populateList(items, itemsList);
 
 </script>
