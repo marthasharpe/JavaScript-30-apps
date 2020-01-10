@@ -13,27 +13,32 @@
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
+    const team = players;
 
     // You might think we can just do something like this:
+    team[3] = 'Lux';
 
     // however what happens when we update that array?
+        // team: ['Wes', 'Sarah', 'Ryan', 'Lux']
 
     // now here is the problem!
+        // players: ['Wes', 'Sarah', 'Ryan', 'Lux']
 
     // oh no - we have edited the original array too!
-
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-
+    // Why? It's because that is an array reference, not an array copy.
+    //They both point to the same array!
     // So, how do we fix this? We take a copy instead!
 
     // one way
+    const team2 = players.slice();
 
     // or create a new array and concat the old one in
+    const team3 = [].concat(players);
 
     // or use the new ES6 Spread
+    const team4 = [...players];
 
     // now when we update it, the original one isn't changed
-
     // The same thing goes for objects, let's say we have a person object
 
     // with Objects
